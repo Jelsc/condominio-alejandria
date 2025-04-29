@@ -18,6 +18,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('Estado', 20)->default('Activo'); // Activo/Suspendido/Eliminado(de manera logica)
+            $table->string('Telefono', 20);
+
+            // Relación con la tabla rols
+            $table->foreignId('rol_id')->constrained('rols')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
             $table->timestamps();
         });
     }

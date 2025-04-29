@@ -23,8 +23,8 @@ return new class extends Migration
             //relacion con cargo_empleados
             $table->foreignId('cargo_empleado_id')
                 ->constrained('cargo_empleados')
-                ->onUpdate('cascade')   //onUpdate('cascade') es para que si se actualiza el id de cargo_empleado se actualice en empleados
-                ->onDelete('restrict'); //onDelete('restrict') es para que no se pueda eliminar un cargo_empleado si tiene empleados relacionados
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
 
             //relacion con usuarios
             $table->foreignId('user_id')->unique()
